@@ -36,7 +36,6 @@ ul {
 
 :root {
     --primary: #38bdf8;
-    --primary-dark: #0ea5e9;
     --background: #0f172a;
     --background-light: #111c33;
     --card: #16233d;
@@ -67,7 +66,7 @@ ul {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(15, 23, 42, 0.96);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     z-index: 1000;
@@ -92,7 +91,7 @@ ul {
 
 .nav-menu {
     display: flex;
-    gap: 30px;
+    gap: 28px;
 }
 
 .nav-menu a {
@@ -107,7 +106,7 @@ ul {
 
 .menu-toggle {
     display: none;
-    background: none;
+    background: transparent;
     border: none;
     color: white;
     font-size: 28px;
@@ -623,7 +622,6 @@ ul {
         align-items: center;
         padding: 25px;
         gap: 20px;
-
         display: none;
     }
 
@@ -723,13 +721,14 @@ ul {
         margin-bottom: 3px;
     }
 
+    .hero-buttons {
+        width: 100%;
+    }
+
     .btn {
         width: 100%;
         text-align: center;
     }
 
-    .hero-buttons {
-        width: 100%;
-    }
 }
 ```
