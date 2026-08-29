@@ -1,88 +1,85 @@
-```javascript
-// =========================
-// MENU MOBILE
-// =========================
+:root {
+    --primary: #1a3a5a;
+    --secondary: #3498db;
+    --accent: #e67e22;
+    --bg: #f4f7f9;
+    --text: #2c3e50;
+}
 
-const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.getElementById("nav-menu");
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    line-height: 1.6;
+}
 
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
+header {
+    background: linear-gradient(135deg, var(--primary) 0%, #2c3e50 100%);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-// Fecha o menu quando clicar em um link
+header h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; }
+.subtitle { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
 
-const navLinks = document.querySelectorAll(".nav-menu a");
+.header-links { margin-top: 25px; }
 
-navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-    });
-});
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 5px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    background: white;
+    color: var(--primary);
+}
 
+.btn-whatsapp { background: #25d366; color: white; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-// =========================
-// ANO AUTOMÁTICO
-// =========================
+section {
+    background: white;
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
 
-const currentYear = document.getElementById("current-year");
+h2 {
+    color: var(--primary);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+}
 
-currentYear.textContent = new Date().getFullYear();
+.skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+.skill-tag {
+    background: #eef2f7;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+}
 
+.timeline-item { margin-bottom: 30px; border-left: 3px solid var(--secondary); padding-left: 20px; }
+.timeline-header { display: flex; justify-content: space-between; align-items: center; }
+.timeline-header h3 { margin: 0; color: var(--secondary); }
 
-// =========================
-// FORMULÁRIO DE CONTATO
-// =========================
+footer { text-align: center; padding: 40px; font-size: 0.9rem; color: #7f8c8d; }
 
-const contactForm = document.getElementById("contact-form");
-const formMessage = document.getElementById("form-message");
-
-contactForm.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    if (name === "" || email === "" || message === "") {
-        formMessage.textContent = "Preencha todos os campos.";
-        return;
-    }
-
-    formMessage.textContent =
-        `Obrigado, ${name}! Sua mensagem foi preenchida com sucesso.`;
-
-    contactForm.reset();
-
-});
-
-
-// =========================
-// ANIMAÇÃO AO ROLAR A PÁGINA
-// =========================
-
-const sections = document.querySelectorAll(".section");
-
-const observer = new IntersectionObserver(
-    entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.15
-    }
-);
-
-sections.forEach(section => {
-    observer.observe(section);
-});
-```
+@media (max-width: 600px) {
+    .timeline-header { flex-direction: column; align-items: flex-start; }
+    header h1 { font-size: 1.8rem; }
+}
